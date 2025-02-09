@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: patrones_front
+  name: patrones_front
+  namespace: main
+spec:
+  selector:
+    matchLabels:
+      app: patrones_front
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: patrones_front
+    spec:
+      containers:
+      - image: sergios21/patrones_front:latest
+      name: patrones_front
+      ports:
+      - containerPort: 3000
+      readinessProbe:
+        httpGet:
+            path: /
+            port: 3000
+        initialDelaySeconds: 40
+        periodSeconds: 10
+        timeoutSeconds: 5
+        failureThreshold: 3

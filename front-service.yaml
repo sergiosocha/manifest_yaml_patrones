@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patrones-front-service
+  labels:
+    app: patrones-front
+  spec:
+    type: LoadBalancer
+    ports:
+      - port: 3001
+        targetPort: 3000
+        protocol: TCP
+    selector:
+      app: patrones-front
