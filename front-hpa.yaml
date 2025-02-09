@@ -8,7 +8,7 @@ spec:
     kind: Deployment
     name: patrones-front     # El nombre del Deployment que queremos escalar
   minReplicas: 1             # Número mínimo de réplicas
-  maxReplicas: 10            # Número máximo de réplicas
+  maxReplicas: 3            # Número máximo de réplicas
   metrics:
   - type: Resource
     resource:

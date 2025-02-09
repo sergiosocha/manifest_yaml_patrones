@@ -7,8 +7,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: patrones-api      
-  minReplicas: 1             # Número mínimo de réplicas
-  maxReplicas: 10            # Número máximo de réplicas
+  minReplicas: 1             
+  maxReplicas: 3            
   metrics:
   - type: Resource
     resource:
