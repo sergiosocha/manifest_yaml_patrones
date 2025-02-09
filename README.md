@@ -1,0 +1,1 @@
+# manifest_yaml_patrones
