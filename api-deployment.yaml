@@ -1,29 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: patrones_api
+  name: patrones-api
 spec:
+  strategy:          
+    type: Recreate
   selector:
     matchLabels:
-      app: patrones_api
-    strategy:
-      type: Recreate
-    template:
-      metadata:
-        labels:
-          app: patrones_api
-      spec:
-        containers:
-          - image: sergios21/patrones_api:latest
-            name: patrones_api
-            env:
-              - name: DB_SERVER_IP
-                value: mysql.main.svc.cluster.local.
-            ports:
-              - containerPort: 8080
-                name: patrones_api
-            readinessProbe:
-              httpGet:
-                path: /user/todos
-                port: 8080
-     
+      app: patrones-api
+  template:         
+    metadata:
+      labels:
+        app: patrones-api
+    spec:
+      containers:
+        - image: sergios21/patrones_api:latest
+          name: patrones-api
+          env:
+            - name: DB_SERVER_IP
+              value: mysql.main.svc.cluster.local.
+          ports:
+            - containerPort: 8080
+              name: patrones-api
+          readinessProbe:
+            httpGet:
+              path: /user/todos
+              port: 8080

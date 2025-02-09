@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: api-service-loadbalancer
   labels:
-    app: patrones_api
+    app: patrones-api
 spec:
   type: LoadBalancer
   ports:
@@ -11,4 +11,4 @@ spec:
       targetPort: 8080
       protocol: TCP
   selector:
-    app: patrones_api
+    app: patrones-api
