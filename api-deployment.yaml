@@ -18,7 +18,7 @@ spec:
           name: patrones-api
           env:
             - name: DB_SERVER_IP
-              value: mysql.main.svc.cluster.local.
+              value: mysql.default.svc.cluster.local.
           ports:
             - containerPort: 8080
               name: patrones-api
